@@ -4,177 +4,296 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-
-</style>
-<link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+<style>
+    html,body{
+        min-width: 290px;
+        color: rgb(8, 8, 7);
+        background-color: white;
+        font-family: 'Open Sans' ,sans-serif;
+        line-height: 1.5;
+        font-size: 20px;
+    }
+    #navbar{
+    position: fixed;
+    min-width: 290px;
+    top: 0px;
+    left: 0px;
+    border-right:4mm ridge rgb(170, 50, 220, .6);;
+    width: 300px;
+    height: 100%;
+    }
+    section header{
+        /* border: 10px solid  red; */
+        padding-top: 10px;
+    }
+    header{
+        color: black;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: thin;
+    }
+    #main-doc header{
+        text-align: left;
+        margin: 0px;
+    }
+    #navbar ul{
+        height:88%;
+        padding: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    #navbar li{
+color: steelblue;
+border-top: 1px solid;
+list-style: none;
+position: relative;
+width: 100%;
+    }
+    #navbar a{
+        display: block;
+        padding: 10px 30px;
+        color: rgb(57, 57, 88);
+        text-decoration: none;
+        cursor: pointer;
+    }   
+    #main-doc{
+        position: absolute;
+        margin-left: 310px;
+        padding: 20px;
+        margin-bottom: 110px;
+    } 
+    section li{
+        margin: 15px 0px 0px 20px;
+    }
+    .because{
+        font-weight: bold;
+        font-style: italic;
+        font-size: 1.3rem;
+    }
+    .book{
+    
+        padding-left: 30%;
+    }
+    .example{
+        font-style: italic ;
+    }
+    .code-inside{
+        margin: 0;
+        padding-left: 22px;
+        position: relative;
+        top: -20px;
+        margin-bottom: -30px;
+    }
+    code{
+
+        display: block;
+        text-align: left;
+        white-space:pre-line;
+        position: relative;
+        word-break: normal;    
+        word-wrap: normal;
+        line-height: 2;
+        background-color: rgb(241, 217, 243);
+        padding:15px;
+        margin:0px 30px;
+        border-radius:15px;
+    }
+    @media only screen and(max-width:815px){
+    #navbar ul{
+        border: 1px solid;
+        height:2s07px;
+    }
+    #navbar{
+        background-color: burlywood;
+        position: absolute;
+        top: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-height: 275px;
+        border: none;
+        z-index: 1;
+        border-bottom: 2px solid;
+    }
+    #main-doc{
+        position: relative;
+        margin-left: 0px;
+        margin-top: 270px;
+    }
+
+    }
+@media only screen and(max-width:400px){
+    #margin-doc{
+        margin-left: -10px;
+    }
+    code{
+            margin-left: -20px;
+            width: 100%;
+            padding: 15px;
+            padding-left: 10px;
+            padding-right: 45px;
+            min-width: 233px;
+    }
+}    
+</style>
 <body>
-    <header class="header">
-        <div class="wraper">
-            <div class="header-grid">
-                <div>
-                    <h1>Media Dashboard</h1>
-                    <p class="header-total"> Total Followers</p>
-                </div>
-                <div class="dark-mode">
-                    <p class="dark-mode-title">Dark Mode</p>
-                    <input type="checkbox"  class="checkbox" id="checkbox">
-                    <label class="switch" for="checkbox"></label>
-                </div>
-            </div>
-      </div>
-    </header>
-<!-- 
-
-    <section class="top-cards">
-        <div class="wrapper">
-            <div class="grid">
-                <article class="card facebook">
-                    <p class="card-title">
-                        <img src="" alt="">
-                        @MelEstevezCamata
-                    </p>
-                    <p class="card-followers">
-                        <img src="" alt="">
-                        <span class="card-followers-number">10</span>
-                        <span class="card-followers-title">Followers</span>
-                    </p>
-                    <p class="card-today">
-                        <img src="" alt="">
-                        12 Today
-                    </p>
-                </article>
-            
-
-
-                <article class="card facebook">
-                    <p class="card-title">
-                        <img src="" alt="">
-                        @MelEstevezCamata
-                    </p>
-                    <p class="card-followers">
-                        <img src="" alt="">
-                        <span class="card-followers-number">10</span>
-                        <span class="card-followers-title">Followers</span>
-                    </p>
-                    <p class="card-today">
-                        <img src="" alt="">
-                        12 Today
-                    </p>
-                </article>
-                
-                
-                
-                
-                <article class="card facebook">
-                    <p class="card-title">
-                        <img src="" alt="">
-                        @MelEstevezCamata
-                    </p>
-                    <p class="card-followers">
-                        <img src="" alt="">
-                        <span class="card-followers-number">10</span>
-                        <span class="card-followers-title">Followers</span>
-                    </p>
-                    <p class="card-today">
-                        <img src="" alt="">
-                        12 Today
-                    </p>
-                </article>
-                
-                
-                <article class="card facebook">
-                    <p class="card-title">
-                        <img src="" alt="">
-                        @MelEstevezCamata
-                    </p>
-                    <p class="card-followers">
-                        <img src="" alt="">
-                        <span class="card-followers-number">10</span>
-                        <span class="card-followers-title">Followers</span>
-                    </p>
-                    <p class="card-today">
-                        <img src="" alt="">
-                        12 Today
-                    </p>
-                </article>
-            </div>
-        </div>
+<nav id="navbar">
+    <header>Node JS Documentation </header>
+    <ul>
+ <li><a href="#Introduccion" class="nav-link">Introduccion</a></li>
+ <li><a href="#global-object" class="nav-link">Global Object</a></li>
+ <li><a href="#process-object" class="nav-link">Process Object</a></li>
+ <li><a href="#buffer" class="nav-link">Buffer</a></li>
+    </ul>
+</nav>
+<main id="main-doc">
+    <section class="main-section" id="Introduccion">
+        <header>Introduccion</header>
+        <article>
+            <p>
+                This is a litle resume of the book "Learning Node" ,i hope it could be uselful for you at end this resume for my best friend who named Silvana. <span>😉</span>
+            </p>
+            <img src="data:image/jpeg;base64,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" alt="Book" class="book">    
+            <p>
+                This book has really helped a lot of people learning Nodejs with a practical approach. The author has included exercises in a way that you need to type code on your own and then you need to fix the mistake in your code.
+            </p>
+        </article>
     </section>
-     -->
-    <section class="overview">
-        <div class="wrapper">
-            <h2>Overview - Today</h2>
-            <div class="grid">
-                <div class="card-small">
-                    <p class="card-small-views">Page Views</p>
-                    <p class="card-small-icon"><img src="" alt=""></p>
-                    <p class="card-small-number"></p>
-                    <p class="card-small-percentage">
-                         <span>
-                        <img src="" alt=""> 3%
-                    </span> </p>
-                </div>
-
-                <div class="card-small">
-                    <p class="card-small-views">Page Views</p>
-                    <p class="card-small-icon"><img src="" alt=""></p>
-                    <p class="card-small-number"></p>
-                    <p class="card-small-percentage">
-                         <span>
-                        <img src="" alt=""> 23%
-                    </span> </p>
-                </div>
-
-
-                <div class="card-small">
-                    <p class="card-small-views">Page Views</p>
-                    <p class="card-small-icon"><img src="" alt=""></p>
-                    <p class="card-small-number"></p>
-                    <p class="card-small-percentage">
-                         <span>
-                        <img src="" alt=""> 33%
-                    </span> </p>
-                </div>
-
-
-                <div class="card-small">
-                    <p class="card-small-views">Page Views</p>
-                    <p class="card-small-icon"><img src="" alt=""></p>
-                    <p class="card-small-number"></p>
-                    <p class="card-small-percentage">
-                         <span>
-                        <img src="" alt=""> 43%
-                    </span> </p>
-                </div>
-
-
-
-
-            </div>
-        </div>
+    <section class="main-section" id="global-object">
+        <header>Global-Object</header>
+        <article>
+            <p>
+                In the browser, when you declare a variable at the top level, it’s declared globally.<strong>But</strong>  It doesn’t work that way in Node   
+            </p>
+            <p class="because">Because  👀</p>
+            <p>
+                The reason is that all variables declared outside a
+                function in JavaScript in the browser are added to the same global object. When we
+                declared a new variable named base in the web page, we overrode the value in the
+                included script file.
+            </p>
+            <p>In Javascript:</p>
+            <code>var base = 2;
+                exports.addtwo = function(input) {
+                return parseInt(input) + base;
+                };
+            </code>
+            <p>
+                Rigth way in Nodejs.
+            </p>
+            <code>var addtwo = require('./addtwo').addtwo;
+                var base = 10;
+                console.log(addtwo(base));</code>
+            <ul>
+                <li>
+                    The result of the Node application is 12.
+                </li>
+                <li> The result of the Javascript is 20.</li>
+            </ul>
+            <p>You could try in Javascript adding this.</p>
+            <code>&lt;head&gt;
+                    &lt;script src="add2.js"&gt; &lt;/script&lt;
+                    &lt;script&gt;
+                    var base = 10;
+                    console.log(addtwo(10));
+                    &lt;/script&gt;
+                    &lt;/head&gt;
+            </code>
+        </article>
     </section>
-    <script src="app.js"></script>
+    <section class="main-section" id="process-object">
+        <header>Process Object</header>
+        <article>
+            <p>
+                The process object provides access to information about the Node environment, as
+                well as the runtime environment.
+            </p>
+            <p>
+                The process.env property provides a great deal of information about what Node sees
+                in your development/production environment:
+            </p>
+            <code>  $ node -p "process.env"</code>
+            <p>Standard streams are pre-established communication channels between an application
+                and the environment.</p>
+                <p>Node supports the channels with three process functions:</p>
+            <ul>
+                <li>process.stdin: a readable stream for stdin</li>
+                <li>process.stdout: a writable stream for stdout</li>
+                <li>process.stderr: a writable stream for stderr</li>
+            </ul>
+           <p class="example"><span> 👉</span> Example 2-1. Demonstrating standard I/O in Node, and exiting application</p>
+            <code>
+                process.stdin.setEncoding('utf8');
+                process.stdin.on('readable',function(){
+                var input=process.stdin.read();
+                <p class="code-inside">
+                    if(input!==null){
+                        process.stdout.write(input);
+                        var command=input.trim();
+                        if(command=='exit'){
+                            process.exit(0);
+                        }}
+                </p>});
+            </code>
+        </article>
+    </section>
+    <section class="main-section" id="buffer">
+        <header>Buffers, Typed Arrays, and Strings</header>
+        <article>
+            <p>
+                In browser-based JavaScript, in the early days, there never was a need to handle
+                binary data (an octet stream). Originally, JavaScript was meant to deal with string values
+                accessed or output to alert windows or forms. Even when Ajax changed the
+                game, the data between client and server was string (Unicode) based.
+            </p>
+
+            <p>
+In Node v4, you can create a new buffer directly using the new keyword:
+            </p>
+            <code>let buf = new Buffer(24);</code>
+            <p>you’ll also want to fill the buffer as soon as you create it:
+            </p>
+
+            <code>let buf = new Buffer(24);
+                buf.fill(0); // fills buffer with zeros</code>
+            <p>Using Buffer.toString() isn’t the only way we can convert a buffer to a string. We
+                can also use a helper class, StringDecoder. This object’s sole purpose is to decode
+                buffer values to UTF-8 strings, but it does so with a little more flexibility and recoverability.</p>
+            <p class="example">
+               <span> 👉</span> An example of the differences between the string conversion routines is in the following
+                Node application.
+            </p>
+
+            <code>
+                "use strict";
+                let StringDecoder = require('string_decoder').StringDecoder;
+                let decoder = new StringDecoder('utf8');
+                let euro = new Buffer([0xE2, 0x82]);
+                let euro2 = new Buffer([0xAC]);
+                console.log(decoder.write(euro));
+                console.log(decoder.write(euro2));
+                console.log(euro.toString());
+                console.log(euro2.toString());
+
+            </code>
+                <ul>
+                <li>
+                    The result to the console is a blank line and a second line with the euro symbol (€)
+                </li>
+                <li>When you use StringDecoder, but two lines of gibberish when you use
+                    buffer.toString().
+ 
+                </li>
+            </ul>
+        </article>
+    </section>
+</main>
+
+
+
 <script>
-    const checkbox=document.querySelector('#checkbox');
-    if(window.matchMedia('(prefers-color-scheme:dark)').matches){
-        checkbox.setAttribute('checked',true);
-    }
-    checkbox.addEventListener('change',function (e) {
-        if(this.checked){
-        document.body.classList.add('is-light-mode');
-        document.body.classList.remove('is-dark-mode');
-    }
-    else{
-        document.body.classList.add('is-dark-mode');
-        document.body.classList.remove('is-light-mode');
-    }
-        
-    })
-
 </script>
 </body>
-
 </html>
