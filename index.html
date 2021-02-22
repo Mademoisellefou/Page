@@ -4,57 +4,177 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+</style>
+<link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./slide/style.css">
-    
 </head>
 <body>
-    <div class="slider">
-        <div class="slider-items">
-        <div class="item">
-        <img src="./slide/img/1.jpg" alt="">
-        <div class="caption">Happy Birthday Alfred</div>
-        </div>
-        <div class="item active">
-        <img src="./slide/img/12.jpg" alt="">
-        <div class="caption">Hope you are having a great day</div>
-        </div>
-        
-        <div class="item">
-            <img src="./slide/img/3.jpg" alt="">
-            <div class="caption">Enjoy Alfred</div>
-            </div>
-
-            <div class="item">
-                <img src="./slide/img/4.jpg" alt="">
-                <div class="caption">You are awesome</div>
+    <header class="header">
+        <div class="wraper">
+            <div class="header-grid">
+                <div>
+                    <h1>Media Dashboard</h1>
+                    <p class="header-total"> Total Followers</p>
                 </div>
-                <div class="item">
-                    <img src="./slide/img/5.jpg" alt="">
-                    <div class="caption">Hope you are having a great day</div>
-                    </div>
-                    <div class="item">
-                        <img src="./slide/img/6.jpg" alt="">
-                        <div class="caption">Have a wonderful birthday</div>
-                        </div>
-   </div>
-        <!-- slider -->
-        <div class="left-slide"> <| </div>
-        <div class="rigth-slide">|> </div>
-        </div>
-    
-    <div class="birthday-card">
-        
-        <h1>I'm so grateful you came into the world 
-            <br>
-            because you make my world better every day.</h1>
-        
-        <h3>from Melany</h3>
-        
+                <div class="dark-mode">
+                    <p class="dark-mode-title">Dark Mode</p>
+                    <input type="checkbox"  class="checkbox" id="checkbox">
+                    <label class="switch" for="checkbox"></label>
+                </div>
+            </div>
       </div>
+    </header>
+<!-- 
 
-        <script src="./slide/app.js"></script>
-        <script src="app.js"></script>
-    </body>
+    <section class="top-cards">
+        <div class="wrapper">
+            <div class="grid">
+                <article class="card facebook">
+                    <p class="card-title">
+                        <img src="" alt="">
+                        @MelEstevezCamata
+                    </p>
+                    <p class="card-followers">
+                        <img src="" alt="">
+                        <span class="card-followers-number">10</span>
+                        <span class="card-followers-title">Followers</span>
+                    </p>
+                    <p class="card-today">
+                        <img src="" alt="">
+                        12 Today
+                    </p>
+                </article>
+            
+
+
+                <article class="card facebook">
+                    <p class="card-title">
+                        <img src="" alt="">
+                        @MelEstevezCamata
+                    </p>
+                    <p class="card-followers">
+                        <img src="" alt="">
+                        <span class="card-followers-number">10</span>
+                        <span class="card-followers-title">Followers</span>
+                    </p>
+                    <p class="card-today">
+                        <img src="" alt="">
+                        12 Today
+                    </p>
+                </article>
+                
+                
+                
+                
+                <article class="card facebook">
+                    <p class="card-title">
+                        <img src="" alt="">
+                        @MelEstevezCamata
+                    </p>
+                    <p class="card-followers">
+                        <img src="" alt="">
+                        <span class="card-followers-number">10</span>
+                        <span class="card-followers-title">Followers</span>
+                    </p>
+                    <p class="card-today">
+                        <img src="" alt="">
+                        12 Today
+                    </p>
+                </article>
+                
+                
+                <article class="card facebook">
+                    <p class="card-title">
+                        <img src="" alt="">
+                        @MelEstevezCamata
+                    </p>
+                    <p class="card-followers">
+                        <img src="" alt="">
+                        <span class="card-followers-number">10</span>
+                        <span class="card-followers-title">Followers</span>
+                    </p>
+                    <p class="card-today">
+                        <img src="" alt="">
+                        12 Today
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+     -->
+    <section class="overview">
+        <div class="wrapper">
+            <h2>Overview - Today</h2>
+            <div class="grid">
+                <div class="card-small">
+                    <p class="card-small-views">Page Views</p>
+                    <p class="card-small-icon"><img src="" alt=""></p>
+                    <p class="card-small-number"></p>
+                    <p class="card-small-percentage">
+                         <span>
+                        <img src="" alt=""> 3%
+                    </span> </p>
+                </div>
+
+                <div class="card-small">
+                    <p class="card-small-views">Page Views</p>
+                    <p class="card-small-icon"><img src="" alt=""></p>
+                    <p class="card-small-number"></p>
+                    <p class="card-small-percentage">
+                         <span>
+                        <img src="" alt=""> 23%
+                    </span> </p>
+                </div>
+
+
+                <div class="card-small">
+                    <p class="card-small-views">Page Views</p>
+                    <p class="card-small-icon"><img src="" alt=""></p>
+                    <p class="card-small-number"></p>
+                    <p class="card-small-percentage">
+                         <span>
+                        <img src="" alt=""> 33%
+                    </span> </p>
+                </div>
+
+
+                <div class="card-small">
+                    <p class="card-small-views">Page Views</p>
+                    <p class="card-small-icon"><img src="" alt=""></p>
+                    <p class="card-small-number"></p>
+                    <p class="card-small-percentage">
+                         <span>
+                        <img src="" alt=""> 43%
+                    </span> </p>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+    <script src="app.js"></script>
+<script>
+    const checkbox=document.querySelector('#checkbox');
+    if(window.matchMedia('(prefers-color-scheme:dark)').matches){
+        checkbox.setAttribute('checked',true);
+    }
+    checkbox.addEventListener('change',function (e) {
+        if(this.checked){
+        document.body.classList.add('is-light-mode');
+        document.body.classList.remove('is-dark-mode');
+    }
+    else{
+        document.body.classList.add('is-dark-mode');
+        document.body.classList.remove('is-light-mode');
+    }
+        
+    })
+
+</script>
+</body>
+
 </html>
