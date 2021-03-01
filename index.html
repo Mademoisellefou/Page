@@ -13,7 +13,7 @@
         background-color: white;
         font-family: 'Open Sans' ,sans-serif;
         line-height: 1.5;
-        font-size: 20px;
+        font-size: 15px;
     }
     #navbar{
     position: fixed;
@@ -29,9 +29,10 @@
         padding-top: 10px;
     }
     header{
+        border-top: 1px solid;
         color: black;
         text-align: center;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         font-weight: thin;
     }
     #main-doc header{
@@ -39,17 +40,18 @@
         margin: 0px;
     }
     #navbar ul{
-        height:88%;
+        /* height:30%; */
         padding: 0;
         overflow-x: hidden;
         overflow-y: auto;
+        margin-bottom: 0;
     }
     #navbar li{
-color: steelblue;
-border-top: 1px solid;
-list-style: none;
-position: relative;
-width: 100%;
+        color: steelblue;
+        border-top: 1px solid;
+        list-style: none;
+        position: relative;
+        width: 100%;
     }
     #navbar a{
         display: block;
@@ -86,6 +88,11 @@ width: 100%;
         top: -20px;
         margin-bottom: -30px;
     }
+    a{
+        color: blue;
+        text-decoration: none;
+    }
+    
     code{
 
         display: block;
@@ -136,7 +143,10 @@ width: 100%;
             padding-right: 45px;
             min-width: 233px;
     }
-}    
+} 
+.prueba{
+border: 10px solid red;
+}   
 </style>
 <body>
 <nav id="navbar">
@@ -147,6 +157,14 @@ width: 100%;
  <li><a href="#process-object" class="nav-link">Process Object</a></li>
  <li><a href="#buffer" class="nav-link">Buffer</a></li>
     </ul>
+    <header style="margin-bottom: -10px;">
+        Second Part
+    </header>
+    <ul>
+        <li><a href="#objectprototype" class="nav-link">ObjectPrototype</a></li>
+        <li><a href="#callbacks" class="nav-link">CallBacks</a></li>
+        <li><a href="#eventemitters" class="nav-link">Event Emitters</a></li>
+           </ul>
 </nav>
 <main id="main-doc">
     <section class="main-section" id="Introduccion">
@@ -289,6 +307,149 @@ In Node v4, you can create a new buffer directly using the new keyword:
             </ul>
         </article>
     </section>
+
+<!-- SecondPart -->
+<section class="main-section" id="objectprototype">
+    <header>Object Prototype</header>
+    <article>
+
+ One use of this could  be to demostrate the fundamental structure of the callback functionality.We create a Node application that creates a object with one function,doSomething().
+ <p class="because">Our node App </p>
+ <br>
+<code><span style="color: rgb(62,93,15);"> //PART1</span>
+    var fib = function (n) {
+        if (n < 2) return n;
+        &nbsp;  return fib(n - 1) + fib(n - 2);
+        };
+</code>
+<br>
+ <code>var Obj = function() { };
+   <span style="color: red;"> Obj.prototype.doSomething </span>= function(arg1_) {
+    var callback_ = arguments[arguments.length - 1];
+    callback = (typeof(callback_) == 'function' ? callback_ : null);
+    var arg1 = typeof arg1_ === 'number' ? arg1_ : null;
+    &nbsp; if (!arg1)
+    &nbsp; &nbsp;  return callback(new Error('first arg missing or not a number'));
+    &nbsp; &nbsp;  process.nextTick(function() {
+    // block on CPU
+    var data = fib(arg1);
+    callback(null, data);
+    });
+    }
+ </code>
+<br>
+ <code><span style="color: rgb(62, 93, 15);"> //PART1 goes here</span>
+    <span style="color: rgb(62,93,15);"> //PART2 goes here</span>
+    var test = new Obj();
+    var number = 10;
+    test.doSomething(number, function(err,value) {
+    &nbsp; if (err)
+    &nbsp; &nbsp;  console.error(err);
+    &nbsp; else
+    &nbsp; &nbsp;  console.log('fibonaci value for %d is %d', number, value);
+    });
+    &nbsp; console.log('called doSomething');
+ </code>
+
+ <p>
+ the Object function takes 3 arguments:
+<ul style="list-style-type:none;">
+    <li>First is returned as data if no error occurs</li>
+    <li>Second must be a string, and the third is the callback function. 
+In doSomething():
+        <ul>
+            <li>if the second argument is missing or is not a string, the object creates a
+new Error object, which gets returned in the callback function.</li>
+            <li>If no error occurs, the
+callback function is called, the error is set to null, and the function data gets returned</li>
+        </ul>
+</li>
+</ul>
+</p>
+<p>to end with this topic objects prototype have functionalities .</p>        
+        Good Resources:
+        <ul >
+            <li><a href="https://eloquentjavascript.net/06_object.html">https://eloquentjavascript.net/06_object.html</a></li>
+            <li><a href="https://www.javascripttutorial.net/javascript-prototype/">https://www.javascripttutorial.net/javascript-prototype/</a> </li>
+        </ul>
+    </article>
+</section>
+<!-- callbacks -->
+<section class="main-section" id="callbacks">
+    <header>CallBack</header>
+    <article>
+        <p>
+Javascript is single-threaded,whic makes it inheretly synchronous is executed line by line until the Application is finished.
+Node is based in JavaScript, it inherits this single-threaded synchronous behavior.
+        </p>
+        The solution to prevent blocking is the event loop.
+
+<p>Node has its own event loop, but rather than wait for a UI event, such as clicking on
+    an element, its loop is used to help facilitate server-based functionality, primarily
+    input/output (I/O).</p>
+
+    <p>Callback helps to return when the result is ready </p>
+        <p class="because">Example 👀</p>
+        
+<code>function add(a,b){
+ &nbsp;setTimeout( function(){
+    &nbsp;&nbsp; var res=a+b;
+    &nbsp; },5000)
+}
+add(2,5,function (res){
+    &nbsp; console.log(res);
+});
+</code>
+<iframe class="gif" src="https://giphy.com/embed/599WsrtJIj2b6" width="300" height="300" style="margin: 30px 30px 30px 30px;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mrw-get-599WsrtJIj2b6">via GIPHY</a></p>
+
+        <p>Using CallBack:</p>
+        <p>You could try in Javascript adding this.</p>
+        <code>function add(a,b){
+            &nbsp;setTimeout( function(){
+               &nbsp;&nbsp; var res=a+b;
+               &nbsp;&nbsp; callback(res);
+               &nbsp; },5000)
+           }
+           add(2,5,function (res){
+               &nbsp; console.log(res);
+           });
+           </code>
+    </article>
+</section>
+<br>
+<!-- eventemitters -->
+<section class="main-section" id="eventemitters">
+    <header>EventEmitter</header>
+    <article>
+        <p>Scratch underneath the surface of many of the Node core objects, and you’ll find EventEmitter. </p>
+       <br>
+       <p>The EventEmitter enables asynchronous event handling in Node. 
+        <br>
+        To demonstrate its core functionality, we’ll try a quick test application.
+        First, include the Events module:</p>
+       <code>var events = require('events');
+       </code>
+       <p>this app EventEmitter instance that emits a timed event every
+        three seconds.</p>
+        <code>var counter = 0;
+            var em = new eventEmitter();
+        </code>
+        <br>
+        <p>Use the newly created EventEmitter to do two essential tasks: attach an event handler
+            to an event, and emit the actual event.</p>
+            
+        <code> setInterval(function(){
+         em.emit(' timed', counter++);   
+        },3000);
+        &nbsp; em.on('timed',function(data){
+            &nbsp; &nbsp; console.log('timed'+data);
+        }); </code>
+<p class="because">
+    Running the application ....
+</p>
+<p>Outputs timed event messages to the console until the application is terminated.</p>
+</article>
+</section>
 </main>
 
 
